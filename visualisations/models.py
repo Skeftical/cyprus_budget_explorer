@@ -6,19 +6,26 @@ from django.db import models
 
 
 class Office(models.Model):
-    id = models.IntegerField()
-    name = models.CharField()
-    year = models.IntegerField()
-    total = models.DecimalField()
+    officeId = models.CharField(max_length=10)
+    name = models.CharField(max_length=128)
+    year = models.IntegerField(null=True)
+    total = models.DecimalField(decimal_places=3, max_digits=18)
+
+    def __unicode__(self):  #For Python 2, use __str__ on Python 3
+        return self.name
 
 
 class SubOffice(models.Model):
-    id = models.IntegerField()
-    name = models.CharField()
+    office = models.ForeignKey(Office)
+    subOfficeId = models.IntegerField()
+    name = models.CharField(max_length=128)
     year = models.IntegerField()
-    total = models.DecimalField()
-    pagio = models.DecimalField()
-    taktikes = models.DecimalField()
-    anaptuksiakes = models.DecimalField()
-    approved = models.BooleanField()
-    revised = models.BooleanField()
+    total = models.DecimalField(decimal_places=3, max_digits=18)
+    pagio = models.DecimalField(decimal_places=3, max_digits=18, null=True)
+    taktikes = models.DecimalField(decimal_places=3, max_digits=18, null=True)
+    anaptuksiakes = models.DecimalField(decimal_places=3, max_digits=18, null=True)
+    approved = models.NullBooleanField(null=True)
+    revised = models.NullBooleanField(null=True)
+
+    def __unicode__(self):  #For Python 2, use __str__ on Python 3
+        return self.name
