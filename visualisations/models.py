@@ -17,7 +17,7 @@ class Office(models.Model):
 
 class SubOffice(models.Model):
     office = models.ForeignKey(Office)
-    subOfficeId = models.IntegerField()
+    subOfficeId = models.CharField(max_length=6)
     name = models.CharField(max_length=128)
     year = models.IntegerField()
     total = models.DecimalField(decimal_places=3, max_digits=18)

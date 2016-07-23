@@ -27,6 +27,7 @@ def add_subOffice_initial(office, subOfficeId, name, year, total):
     subOffice.total = total
     subOffice.save()
 
+
 def populate():
     # Only Offices and SubOffices
     firstline = True
@@ -47,10 +48,42 @@ def populate():
                 total = float(row[2])
                 office = Office.objects.get(officeId=officeId)
                 add_subOffice_initial(office, subOfficeId, name, year, total)
-            # if len(row[0]) > 4 and not row[0] == "Column":
-            #     # Pagio, taktites, anaptuksiakes in here
+                # if len(row[0]) > 4 and not row[0] == "Column":
+                #     # Pagio, taktites, anaptuksiakes in here
 
+
+def add_more_data():
+    firstline = True
+    with open('proupologismos-revised-csv.csv') as csvfile:
+        reader = csv.reader(csvfile)
+        for row in reader:
+            if firstline:
+                firstline = False
+                continue
+            elif len(row[0]) > 4 and not row[0] == 'Column':
+                # SubOffices in here
+                subOfficeId = row[0][:4]
+                suboffice = SubOffice.objects.get(subOfficeId=subOfficeId)
+                if row[0][-1] == '1':
+                    # pagio
+                    pagio = float(row[2])
+                    suboffice.pagio = pagio
+                    suboffice.save()
+                elif row[0][-1] == '2':
+                    taktikes = float(row[2])
+                    suboffice.taktikes = taktikes
+                    suboffice.save()
+                elif row[0][-1] == '3':
+                    anaptuksiakes = float(row[2])
+                    suboffice.anaptuksiakes = anaptuksiakes
+                    suboffice.save()                    # anaptuksiakes
+                    # if len(row[0]) > 4 and not row[0] == "Column":
+                    #     # Pagio, taktites, anaptuksiakes in here
+
+
+#DIFFERENT YEARS
 
 if __name__ == '__main__':
     print "Starting Budget population script..."
     populate()
+    add_more_data()
