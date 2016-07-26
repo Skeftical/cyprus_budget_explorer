@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os, csv
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proupologismos.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'budget_project.settings')
 
 import django
 
@@ -36,7 +36,7 @@ def populate():
     # Only Offices and SubOffices
     firstline = True
     firstrow = []
-    with open('proupologismos-revised-csv.csv') as csvfile:
+    with open('budget_project-revised-csv.csv') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
             if firstline:
@@ -81,7 +81,7 @@ def populate():
 def add_more_data():
     firstline = True
     firstrow = []
-    with open('proupologismos-revised-csv.csv') as csvfile:
+    with open('budget_project-revised-csv.csv') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
             if firstline:
