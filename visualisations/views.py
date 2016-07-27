@@ -31,3 +31,6 @@ def office_detail(request, officeId):
         serializer = OfficeSerializer(office, many=True)
         return Response(serializer.data)
 
+def index(request):
+    return render(request,'index.html')
+
