@@ -13,7 +13,7 @@ class OfficeViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
-    queryset = Office.objects.all()
+    queryset = Office.objects.filter(year=2014)
     serializer_class = OfficeSerializer
 
 

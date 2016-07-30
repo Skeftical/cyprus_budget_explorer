@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html html lang="en" ng-app="phonecatApp">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static "bootstrap/dist/css/bootstrap.css" %}" />
+        <title>Budget</title>
+    </head>
+
+
+        {% block body_block %}{% endblock %}
+
+
+
+<script src="{% static "underscore/underscore.js" %}"></script>
+<script src="{% static "angular/angular.js" %}"></script>
+<script src="{% static "angular-resource/angular-resource.js" %}"></script>
+<script src="{% static "js/app/app.js" %}"></script>
+
+
+</html>

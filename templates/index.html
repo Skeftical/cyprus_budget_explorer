@@ -1,15 +1,63 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
 
-{% load staticfiles %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block body_block %}
+    {% verbatim %}
+    <body ng-controller="PhoneListController">
 
-</body>
-<script src="{% static "js/jquery.min.js" %}"></script>
-<script src="{% static "js/bootstrap.min.js" %}"></script>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <!--Sidebar content-->
+                <p>
+                    Search: <input ng-model="query"/>
+                </p>
+                <p>
+                <p>
+                    Sort by:
+                    <select ng-model="orderProp">
+                        <option value="name">Alphabetical</option>
+                        <option value="total">Total</option>
+                    </select>
+                </p>
+                </p>
+            </div>
+            <div class="col-md-10">
+                <!--Body content-->
 
-</html>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Office ID</th>
+                        <th>Name</th>
+                        <th>Year<select ng-model="orderYear">
+                            <option selected value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                        </select></th>
+                        <th>Total</th>
+                        <th>Approved</th>
+                        <th>Revised</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="office in offices | filter:query | orderBy:orderProp">
+                        <td>{{ office.officeId }}</td>
+                        <td><a href="#/offices/{{office.officeId}}">{{office.name}}</a></td>
+                        <td>{{office.year}}</td>
+                        <td>{{ office.total | currency : "€" : 2}}</td>
+                        <td>{{ office.approved }}</td>
+                        <td>{{ office.revised }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    </body>
+    {% endverbatim %}
+{% endblock %}
