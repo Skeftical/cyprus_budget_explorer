@@ -1,4 +1,5 @@
 *.pyc
-assets/*
+assets/*/
+!/assets/app/
 node_modules/*
 node_modules/*.bin
