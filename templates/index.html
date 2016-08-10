@@ -3,8 +3,7 @@
 
 {% block body_block %}
     {% verbatim %}
-    <body ng-controller="PhoneListController">
-
+    <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
@@ -22,38 +21,8 @@
                 </p>
                 </p>
             </div>
-            <div class="col-md-10">
+            <div ng-view class="col-md-10">
                 <!--Body content-->
-
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Office ID</th>
-                        <th>Name</th>
-                        <th>Year<select ng-model="orderYear">
-                            <option selected value="2014">2014</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
-                            <option value="2017">2017</option>
-                            <option value="2018">2018</option>
-                        </select></th>
-                        <th>Total</th>
-                        <th>Approved</th>
-                        <th>Revised</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="office in offices | filter:query | orderBy:orderProp">
-                        <td>{{ office.officeId }}</td>
-                        <td><a href="#/offices/{{office.officeId}}">{{office.name}}</a></td>
-                        <td>{{office.year}}</td>
-                        <td>{{ office.total | currency : "€" : 2}}</td>
-                        <td>{{ office.approved }}</td>
-                        <td>{{ office.revised }}</td>
-                    </tr>
-                    </tbody>
-                </table>
-
             </div>
         </div>
     </div>

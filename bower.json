@@ -2,9 +2,10 @@
     "name": "budget",
     "version": "1.0.0",
     "dependencies": {
-        "angular": "1.2.13",
-        "angular-resource": "1.2.13",
+        "angular": "1.5.x",
+        "angular-resource": "1.5.x",
         "underscore": "",
+        "angular-route": "1.5.x",
         "bootstrap": ">=3.0"
     },
     "private": true
