@@ -20,14 +20,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 You need to have the following installed :
 
-*Python 2.7.x or newer
-*Pip
-*Npm
-*Bower
-*Django
-```
-Give examples
-```
+* Python 2.7.x or newer
+* Pip
+* Npm
+* Bower
+* Django
+
 
 ### Installing
 
