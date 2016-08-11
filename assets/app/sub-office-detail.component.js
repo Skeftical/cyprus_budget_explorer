@@ -4,9 +4,9 @@ angular.module('subOfficeDetail').component('subOfficeDetail', {
         function PhoneDetailController($scope, $http, $routeParams) {
             var self = this;
 
-            $http.get('/api/offices/' + $routeParams.officeId + '/2014').then(function (response) {
+            $http.get('/api/offices/' + $routeParams.officeId).then(function (response) {
                 self.offices = response.data;
-
+                self.year = 2014;
                 self.setData = function setData(index) {
                     subOffice = self.offices[index];
                     self.pagio = subOffice.pagio;

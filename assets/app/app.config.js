@@ -11,9 +11,6 @@ angular.
       when('/offices/', {
           template: '<office-detail></office-detail>'
         }).
-          when('/#myModal', {
-        template:'<modal></modal>'
-      }).
         otherwise('/offices');
     }
   ]);

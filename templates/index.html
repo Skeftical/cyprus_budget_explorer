@@ -5,27 +5,12 @@
     {% verbatim %}
     <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
-                <!--Sidebar content-->
-                <p>
-                    Search: <input ng-model="query"/>
-                </p>
-                <p>
-                <p>
-                    Sort by:
-                    <select ng-model="orderProp">
-                        <option value="name">Alphabetical</option>
-                        <option value="total">Total</option>
-                    </select>
-                </p>
-                </p>
-            </div>
-            <div ng-view class="col-md-10">
+
+            <div ng-view>
                 <!--Body content-->
             </div>
         </div>
-    </div>
+
 
     </body>
     {% endverbatim %}
