@@ -1,4 +1,4 @@
-# Pou paoun ta leuta mou
+# Cyprus Budget Explorer
 
 This project aims to build a system that would allow for exploring the budget of the Republic of Cyprus. The data is available in a pdf form from here : http://bit.ly/2biYQ0y 
 
